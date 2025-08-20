@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Inventarios</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="cuerpo"> 
+    <div class="formulario1">
+        <a href="index.html">
+            <img src="./img/deshacer.png" alt="Volver">
+        </a>
+        <h1>Registrarse</h1>
+
+        <!-- Formulario corregido -->
+        <form action="./php/registro.php" method="POST">
+            <div class="username1">
+                <input type="text" name="usuario" id="usuario" required placeholder=" ">
+                <label for="usuario">Nombre completo</label>
+            </div>
+
+            <div class="username1">
+                <input type="text" name="documento" id="documento" required placeholder=" ">
+                <label for="documento">Documento de identidad</label>
+            </div>
+
+            <div class="username1">
+                <input type="password" name="clave" id="clave" required placeholder=" ">
+                <label for="clave">Contraseña</label>
+            </div>
+
+            <input type="submit" value="Registrarse" class="boton">
+
+            <div class="registrarse"> 
+                <a href="./inicio_de_sesion.html">Iniciar Sesión</a>              
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+    font-family: "Roboto", sans-serif;
+}
+
+:root {
+    --main: #9f94f1;
+}
+
+/* === Fondo y centrado global === */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(150deg,#9f94f1, #bbc2e5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+/* === Caja de formularios === */
+.formulario {
+    background: #fff;
+    max-width: 350px;
+    width: 90%;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: relative;
+    margin: 0 auto;
+}
+
+/* Botón volver */
+.formulario img {
+    width: 30px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+}
+
+/* Título */
+.formulario h1 {
+    text-align: center;
+    color: #6a5acd;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #9f94f1;
+    padding-bottom: 10px;
+}
+
+/* === Inputs animados === */
+.input-container {
+    position: relative;
+    margin: 20px 0;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    font-size: 16px;
+    background: none;
+}
+
+.input-container label {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: #888;
+    transition: 0.3s;
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label {
+    top: -10px;
+    font-size: 12px;
+    color: #6a5acd;
+}
+
+/* === Botones === */
+button, .boton {
+    background: #8a7aff;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+}
+
+button:hover, .boton:hover {
+    background: #7a6ae0;
+}
+
+.formulario1 {
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: white;
+    border-radius: 10px;  
+}
+
+.formulario1 img{
+    margin: 5px 10px;
+    width: 10%;
+}
+
+.formulario1 h1{
+    text-align: center;
+    padding: 0 0 20px 0;
+    color: #9f94f1;
+    border-bottom: 1px solid #9f94f1;
+}
+
+.formulario1 form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+form .username1{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.username1 {
+    position: relative;
+    margin: 20px 0;
+}
+
+.username1 input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    font-size: 16px;
+    background: none;
+}
+
+.username1 label {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    color: #adadad;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+/* Animación para cuando hay texto o focus */
+.username1 input:focus + label,
+.username1 input:not(:placeholder-shown) + label {
+    top: -10px;
+    font-size: 12px;
+    color: #6a5acd;
+}
+
+ .username1 span::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #5d5c5e;
+    transition: .5s;
+}
+
+.username1 input:focus ~ label{
+    top: -5px;
+    color: #6c3482;
+}
+
+
+.username1 input:focus ~ span::before{
+    width: 100%;
+}
+
+/* === Otros === */
+.registrarse {
+    margin: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    color: black;
+}
+
+.registrarse a {
+    font-weight: 600;
+    color: #6a5acd;
+    text-decoration: none;
+}
+
+.registrarse a:hover {
+    text-decoration: underline;
+}
+
+/* === Responsivo === */
+@media (max-width: 767px) {
+    .formulario {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .formulario h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 430px) {
+    body {
+        font-size: 16px;
+        padding: 15px;
+    }
+
+    .formulario {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+/* === Estilo para SELECT igual que los INPUTS === */
+.input-container select {
+    width: 100%;
+    padding: 10px;
+    border: none; /* quita todos los bordes */
+    border-bottom: 2px solid #ccc; /* solo la línea inferior */
+    outline: none;
+    font-size: 16px;
+    background: none;
+    color: #000;
+
+    /* Quitar estilo nativo */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* Flecha personalizada */
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%236a5acd' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 18px;
+    cursor: pointer;
+}
+
+/* Cambiar color de línea al focus */
+.input-container select:focus {
+    border-bottom: 2px solid #6a5acd;
+}
+
+/* Animar la etiqueta */
+.input-container select:focus + label,
+.input-container select:valid + label {
+    top: -10px;
+    font-size: 12px;
+    color: #6a5acd;
+}
+
+

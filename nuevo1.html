@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Producto</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="formulario">
+        <a href="mostrar_todo.php">
+            <img src="./img/deshacer.png" alt="Volver">
+        </a>
+        <h1 id="titulo-form">Agregar Producto</h1>
+
+        <form action="php/guardar_producto.php" method="POST">
+    <!-- Campo oculto para detectar edición -->
+    <input type="hidden" name="id" id="producto-id">
+
+    <div class="input-container">
+        <input type="text" name="nombre" id="nombre" required placeholder=" ">
+        <label for="nombre">Nombre</label>
+    </div>
+
+    <div class="input-container">
+        <select name="sede" id="sede" required>
+            <option value="disabled selected"></option>
+            <option value="Guayabal">Guayabal</option>
+            <option value="Morron">Morron</option>
+            <option value="Chachafrutos">Chachafrutos</option>
+            <option value="Rojas">Rojas</option>
+            <option value="Pomos">Pomos</option>
+            <option value="Montegrande">Montegrande</option>
+            <option value="Filo del Medio">Filo del Medio</option>
+            <option value="Aguada">Aguada</option>
+            <option value="Horizontes">Horizontes</option>
+            <option value="Loma del Medio">Loma del Medio</option>
+            <option value="Nuevo Horizontes">Nuevo Horizontes</option>
+            <option value="Santa Bárbara">Santa Bárbara</option>
+            <option value="Santa Bárbara Primaria">Santa Bárbara Primaria</option>
+            <option value="Sauce">Sauce</option>
+            <option value="Filo Grande">Filo Grande</option>
+            <option value="Pomar">Pomar</option>
+            <option value="Santa Rita">Santa Rita</option>
+            <option value="Palo Grande">Palo Grande</option>
+            <option value="María Angelina Herrera (alta miranda)">María Angelina Herrera (alta miranda)</option>
+            <option value="Marco Fidel Suárez">Marco Fidel Suárez</option>
+            <option value="José Maria Villa">José Maria Villa</option>
+        </select>
+        <label for="sede">Sede</label>
+    </div>
+
+    <div class="input-container">
+        <input type="number" name="cantidad" id="cantidad" required placeholder=" ">
+        <label for="cantidad">Cantidad</label>
+    </div>
+
+    <div class="input-container">
+        <input type="date" name="fecha_entrega" id="fecha_entrega" required>
+        <label for="fecha_entrega">Fecha de Entrega</label>
+    </div>
+
+    <input type="submit" id="boton-guardar" class="boton" value="Agregar Producto">
+</form>
+
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+
+        if(id){
+            document.getElementById("titulo-form").textContent = "Editar Producto";
+            document.getElementById("boton-guardar").value = "Guardar Cambios";
+
+            fetch("php/get_producto.php?id=" + id)
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("nombre").value = data.nombre;
+                document.getElementById("sede").value = data.sede;
+                document.getElementById("cantidad").value = data.cantidad;
+                document.getElementById("fecha_entrega").value = data.fecha_entrega;
+                document.getElementById("producto-id").value = id;
+            })
+            .catch(err => console.error("Error al cargar producto:", err));
+        }
+    });
+    </script>
+</body>
+</html>
+
